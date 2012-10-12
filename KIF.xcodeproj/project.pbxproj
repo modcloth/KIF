@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		39160B1113D1E6BB00311E38 /* LoadableCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 39160B1013D1E6BB00311E38 /* LoadableCategory.h */; };
+		90726D751628C797004B9B15 /* KIFJunitTestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 90726D711628C797004B9B15 /* KIFJunitTestLogger.h */; };
+		90726D761628C797004B9B15 /* KIFJunitTestLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 90726D721628C797004B9B15 /* KIFJunitTestLogger.m */; };
+		90726D771628C797004B9B15 /* KIFTestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 90726D731628C797004B9B15 /* KIFTestLogger.h */; };
+		90726D781628C797004B9B15 /* KIFTestLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 90726D741628C797004B9B15 /* KIFTestLogger.m */; };
 		AAB0726C139719AC008AF393 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB0726B139719AC008AF393 /* Foundation.framework */; };
 		AAB0728213971A63008AF393 /* KIF-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AAB0728113971A63008AF393 /* KIF-Prefix.pch */; };
 		AAB0728D13971A98008AF393 /* KIFTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = AAB0728613971A98008AF393 /* KIFTestController.h */; };
@@ -37,6 +41,10 @@
 
 /* Begin PBXFileReference section */
 		39160B1013D1E6BB00311E38 /* LoadableCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadableCategory.h; sourceTree = "<group>"; };
+		90726D711628C797004B9B15 /* KIFJunitTestLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIFJunitTestLogger.h; sourceTree = "<group>"; };
+		90726D721628C797004B9B15 /* KIFJunitTestLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIFJunitTestLogger.m; sourceTree = "<group>"; };
+		90726D731628C797004B9B15 /* KIFTestLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIFTestLogger.h; sourceTree = "<group>"; };
+		90726D741628C797004B9B15 /* KIFTestLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIFTestLogger.m; sourceTree = "<group>"; };
 		AAB07268139719AC008AF393 /* libKIF.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKIF.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB0726B139719AC008AF393 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAB0728113971A63008AF393 /* KIF-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KIF-Prefix.pch"; path = "Classes/KIF-Prefix.pch"; sourceTree = SOURCE_ROOT; };
@@ -119,6 +127,10 @@
 		AAB0728413971A98008AF393 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				90726D711628C797004B9B15 /* KIFJunitTestLogger.h */,
+				90726D721628C797004B9B15 /* KIFJunitTestLogger.m */,
+				90726D731628C797004B9B15 /* KIFTestLogger.h */,
+				90726D741628C797004B9B15 /* KIFTestLogger.m */,
 				AAB0728513971A98008AF393 /* KIF-Prefix.pch */,
 				AAB0728613971A98008AF393 /* KIFTestController.h */,
 				AAB0728713971A98008AF393 /* KIFTestController.m */,
@@ -174,6 +186,8 @@
 				AAB072B213971AB2008AF393 /* UIWindow-KIFAdditions.h in Headers */,
 				CDFD8E86139728B4008D299F /* NSFileManager-KIFAdditions.h in Headers */,
 				39160B1113D1E6BB00311E38 /* LoadableCategory.h in Headers */,
+				90726D751628C797004B9B15 /* KIFJunitTestLogger.h in Headers */,
+				90726D771628C797004B9B15 /* KIFTestLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +252,8 @@
 				AAB072B113971AB2008AF393 /* UIView-KIFAdditions.m in Sources */,
 				AAB072B313971AB2008AF393 /* UIWindow-KIFAdditions.m in Sources */,
 				CDFD8E87139728B4008D299F /* NSFileManager-KIFAdditions.m in Sources */,
+				90726D761628C797004B9B15 /* KIFJunitTestLogger.m in Sources */,
+				90726D781628C797004B9B15 /* KIFTestLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
