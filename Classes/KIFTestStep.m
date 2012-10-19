@@ -468,7 +468,7 @@ typedef CGPoint KIFDisplacement;
 
 + (id)stepToClearTextFromViewWithAccessibilityLabel:(NSString *)label
 {
-    return [self stepToClearTextFromViewWithAccessibilityLabel:label traits:nil expectedResult:nil];
+    return [self stepToClearTextFromViewWithAccessibilityLabel:label traits:0 expectedResult:nil];
 }
 
 + (id)stepToSelectPickerViewRowWithTitle:(NSString *)title;
