@@ -17,7 +17,7 @@
 #import "UIWindow-KIFAdditions.h"
 
 
-static NSTimeInterval KIFTestStepDefaultTimeout = 10.0;
+static NSTimeInterval KIFTestStepDefaultTimeout = 30.0;
 
 @interface KIFTestStep ()
 
