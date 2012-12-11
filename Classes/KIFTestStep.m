@@ -207,7 +207,7 @@ typedef CGPoint KIFDisplacement;
         }
 
         KIFTestWaitCondition((([NSDate timeIntervalSinceReferenceDate] - startTime) >= interval), error, @"Waiting for time interval to expire.");
-
+        startTime = 0;
         return KIFTestStepResultSuccess;
     }];
     
