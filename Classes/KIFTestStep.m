@@ -448,7 +448,17 @@ typedef CGPoint KIFDisplacement;
             UIView *delView = [UIAccessibilityElement viewContainingAccessibilityElement:delElement];
             KIFTestWaitCondition(delView, error, @"Cannot find view with accessibility label \"Delete\"");
             
-            CGRect delElementFrame = [delView.window convertRect:delElement.accessibilityFrame toView:delView];
+            CGRect delFrame = delView.accessibilityFrame;
+            
+            if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ) {
+                // Keyboards are added to windows. Windows swap x and y coordinates when in landscape.
+                CGRect tempFrame = delFrame;
+                delFrame.origin.x = tempFrame.origin.y;
+                delFrame.origin.y = tempFrame.origin.x;
+            }
+            
+            CGRect delElementFrame = [delView.window convertRect:delFrame toView:delView];
+            
             CGPoint delTappablePointInElement = [delView tappablePointInRect:delElementFrame];
             
             // This is mostly redundant of the test in _accessibilityElementWithLabel:
