@@ -448,7 +448,7 @@ typedef CGPoint KIFDisplacement;
             UIView *delView = [UIAccessibilityElement viewContainingAccessibilityElement:delElement];
             KIFTestWaitCondition(delView, error, @"Cannot find view with accessibility label \"Delete\"");
             
-            CGRect delFrame = delView.accessibilityFrame;
+            CGRect delFrame = delElement.accessibilityFrame;
             
             if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ) {
                 // Keyboards are added to windows. Windows swap x and y coordinates when in landscape.
