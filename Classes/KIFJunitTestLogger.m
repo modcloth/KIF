@@ -92,8 +92,11 @@ static KIFTestScenario* currentScenario = nil;
 - (void)logTestingDidFinish;
 {
     NSTimeInterval totalDuration = -[self.controller.testSuiteStartDate timeIntervalSinceNow];
+    
+    NSString* testSuiteName = [NSString stringWithFormat:@"KIF %@", (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? @"iPhone" : @"iPad"];
+    
     NSString* data = [NSString stringWithFormat: @"<testsuite name=\"%@\" tests=\"%d\" failures=\"%d\" time=\"%0.4f\">\n",
-                      @"KIF Tests", [self.controller.scenarios count], self.controller.failureCount, totalDuration];
+                      testSuiteName, [self.controller.scenarios count], self.controller.failureCount, totalDuration];
     
     [self appendToLog:data];
     
