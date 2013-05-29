@@ -73,4 +73,8 @@
  */
 - (CGPoint)tappablePointInRect:(CGRect)rect;
 
+- (void)longTapAtPoint:(CGPoint)point withDelay:(NSInteger)delay andCompletion:(void(^)(void)) completion;
+
+- (void)longTapAtPointThenDrag:(CGPoint)startPoint endPoint:(CGPoint)endpoint withDelay:(NSInteger)delay;
+
 @end
