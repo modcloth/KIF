@@ -17,6 +17,14 @@ static NSMutableDictionary* durations = nil;
 static NSMutableDictionary* errors = nil;
 static KIFTestScenario* currentScenario = nil;
 
+- (NSString *)encodeSafeXml:(NSString*)unsafe {
+    return [[[[[unsafe stringByReplacingOccurrencesOfString: @"&" withString: @"&amp;"]
+               stringByReplacingOccurrencesOfString: @"\"" withString: @"&quot;"]
+              stringByReplacingOccurrencesOfString: @"'" withString: @"&#39;"]
+             stringByReplacingOccurrencesOfString: @">" withString: @"&gt;"]
+            stringByReplacingOccurrencesOfString: @"<" withString: @"&lt;"];
+}
+
 - (void)initFileHandle;
 {
     if (!fileHandle) {
@@ -107,14 +115,14 @@ static KIFTestScenario* currentScenario = nil;
         
         NSString* scenarioSteps = [[scenario.steps valueForKeyPath:@"description"] componentsJoinedByString:@"\n"];
         NSString* errorMsg =  (error ? [NSString stringWithFormat:@"<failure message=\"%@\">%@</failure>",
-                                        [error localizedDescription], scenarioSteps] :
+                                        [self encodeSafeXml:[error localizedDescription]], [self encodeSafeXml:scenarioSteps]] :
                                @"");
         
         NSString* description = [scenario description];
         NSString* classString = NSStringFromClass([scenario class]);
         
         data = [NSString stringWithFormat:@"<testcase name=\"%@\" class=\"%@\" time=\"%0.4f\">%@</testcase>\n",
-                description, classString, [duration doubleValue], errorMsg];
+                [self encodeSafeXml:description], [self encodeSafeXml:classString], [duration doubleValue], errorMsg];
         [self appendToLog:data];
     }
     
