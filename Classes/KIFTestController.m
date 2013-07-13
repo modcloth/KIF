@@ -341,7 +341,6 @@ static void releaseInstance()
             self.currentStep = (self.currentScenario.steps.count ? [self.currentScenario.steps objectAtIndex:0] : nil);
             self.currentStepStartDate = [NSDate date];
             failureCount++;
-            [self _writeScreenshotForStep:previousStep];
             break;
         }
         case KIFTestStepResultSuccess: {
@@ -464,7 +463,7 @@ static void releaseInstance()
     
     outputPath = [outputPath stringByExpandingTildeInPath];
     outputPath = [outputPath stringByAppendingPathComponent:[step.description stringByReplacingOccurrencesOfString:@"/" withString:@"_"]];
-    outputPath = [outputPath stringByAppendingPathComponent:[[NSDate date] description]];
+    outputPath = [outputPath stringByAppendingString:[[NSDate date] description]];
     outputPath = [outputPath stringByAppendingPathExtension:@"png"];
     [UIImagePNGRepresentation(image) writeToFile:outputPath atomically:YES];
 }
