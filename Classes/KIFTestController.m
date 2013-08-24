@@ -40,7 +40,6 @@ extern id objc_msgSend(id theReceiver, SEL theSelector, ...);
 - (void)_advanceWithResult:(KIFTestStepResult)result error:(NSError*) error;
 - (KIFTestStep *)_nextStep;
 - (KIFTestScenario *)_nextScenarioAfterResult:(KIFTestStepResult)result;
-- (void)_writeScreenshotForStep:(KIFTestStep *)step;
 - (void)_logTestingDidStart;
 - (void)_logTestingDidFinish;
 - (void)_logDidStartScenario:(KIFTestScenario *)scenario;
@@ -332,8 +331,8 @@ static void releaseInstance()
     
     switch (result) {
         case KIFTestStepResultFailure: {
+            self.currentStep.failingScreenshotPath = [self _writeScreenshotForStep:self.currentStep];
             [self _logDidFailStep:self.currentStep duration:currentStepDuration error:error];
-            [self _writeScreenshotForStep:self.currentStep];
             [self.currentStep cleanUp];
             
             self.currentScenario = [self _nextScenarioAfterResult:result];
@@ -442,7 +441,7 @@ static void releaseInstance()
     return nextScenario;
 }
 
-- (void)_writeScreenshotForStep:(KIFTestStep *)step;
+- (NSString *)_writeScreenshotForStep:(KIFTestStep *)step;
 {
     NSString *outputPath = [[[NSProcessInfo processInfo] environment] objectForKey:@"KIF_SCREENSHOTS"];
     if (!outputPath) {
@@ -451,7 +450,7 @@ static void releaseInstance()
     
     NSArray *windows = [[UIApplication sharedApplication] windows];
     if (windows.count == 0) {
-        return;
+        return nil;
     }
     
     UIGraphicsBeginImageContext([[windows objectAtIndex:0] bounds].size);
@@ -465,7 +464,9 @@ static void releaseInstance()
     outputPath = [outputPath stringByAppendingPathComponent:[step.description stringByReplacingOccurrencesOfString:@"/" withString:@"_"]];
     outputPath = [outputPath stringByAppendingString:[[NSDate date] description]];
     outputPath = [outputPath stringByAppendingPathExtension:@"png"];
+    NSLog(@"open \"%@\"", outputPath);
     [UIImagePNGRepresentation(image) writeToFile:outputPath atomically:YES];
+    return outputPath;
 }
 
 - (NSInteger)failureCount;

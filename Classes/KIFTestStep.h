@@ -103,6 +103,13 @@ typedef KIFTestStepResult (^KIFTestStepExecutionBlock)(KIFTestStep *step, NSErro
 @property (nonatomic, retain) NSString *description;
 
 /*!
+ @property failingScreenshotPath
+ @abstract The path to the screenshot taken when a test step fails
+ @discussion When a step fails, a screenshot is recorded. This path can be used to provide easier access to the screenshot
+ */
+@property (nonatomic, copy)NSString *failingScreenshotPath;
+
+/*!
  @method defaultTimeout
  @abstract The default amount of time to assign to new steps before assuming they failed.
  @discussion To change the default value of the timeout property, either subclass KIFTestStep and override this method or call +setDefaultTimeout: with a different value.
