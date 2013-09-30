@@ -340,6 +340,7 @@ static void releaseInstance()
             self.currentStep = (self.currentScenario.steps.count ? [self.currentScenario.steps objectAtIndex:0] : nil);
             self.currentStepStartDate = [NSDate date];
             failureCount++;
+            [self _testingDidFinish];
             break;
         }
         case KIFTestStepResultSuccess: {
