@@ -468,7 +468,7 @@ typedef struct __GSEvent * GSEventRef;
     [[UIApplication sharedApplication] sendEvent:event];
     
     // Perform long touch
-    dispatch_after( dispatch_time( DISPATCH_TIME_NOW, NSEC_PER_SEC * delay), dispatch_get_current_queue(), ^(void){
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * delay), dispatch_get_main_queue(), ^(void){
         [touch setPhase:UITouchPhaseEnded];
         [[UIApplication sharedApplication] sendEvent:event];
         
