@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39160B1113D1E6BB00311E38 /* LoadableCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 39160B1013D1E6BB00311E38 /* LoadableCategory.h */; };
 		90726D751628C797004B9B15 /* KIFJunitTestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 90726D711628C797004B9B15 /* KIFJunitTestLogger.h */; };
 		90726D761628C797004B9B15 /* KIFJunitTestLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 90726D721628C797004B9B15 /* KIFJunitTestLogger.m */; };
 		90726D771628C797004B9B15 /* KIFTestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 90726D731628C797004B9B15 /* KIFTestLogger.h */; };
@@ -40,7 +39,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		39160B1013D1E6BB00311E38 /* LoadableCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadableCategory.h; sourceTree = "<group>"; };
 		90726D711628C797004B9B15 /* KIFJunitTestLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIFJunitTestLogger.h; sourceTree = "<group>"; };
 		90726D721628C797004B9B15 /* KIFJunitTestLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIFJunitTestLogger.m; sourceTree = "<group>"; };
 		90726D731628C797004B9B15 /* KIFTestLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIFTestLogger.h; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 		AAB0729313971AB2008AF393 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				39160B1013D1E6BB00311E38 /* LoadableCategory.h */,
 				AAB0729413971AB2008AF393 /* CGGeometry-KIFAdditions.h */,
 				AAB0729513971AB2008AF393 /* CGGeometry-KIFAdditions.m */,
 				CDFD8E84139728B4008D299F /* NSFileManager-KIFAdditions.h */,
@@ -185,7 +182,6 @@
 				AAB072B013971AB2008AF393 /* UIView-KIFAdditions.h in Headers */,
 				AAB072B213971AB2008AF393 /* UIWindow-KIFAdditions.h in Headers */,
 				CDFD8E86139728B4008D299F /* NSFileManager-KIFAdditions.h in Headers */,
-				39160B1113D1E6BB00311E38 /* LoadableCategory.h in Headers */,
 				90726D751628C797004B9B15 /* KIFJunitTestLogger.h in Headers */,
 				90726D771628C797004B9B15 /* KIFTestLogger.h in Headers */,
 			);
