@@ -19,7 +19,6 @@
     
     UIWindow        *_window;
     UIView          *_view;
-    UIView          *_gestureView;
     UIView          *_warpedIntoView;
     NSMutableArray  *_gestureRecognizers;
     NSMutableArray  *_forwardingRecord;
@@ -38,6 +37,9 @@
     } _touchFlags;
 #endif
 }
+
+- (void)setGestureView:(UIView *)view;
+
 @end
 
 @implementation UITouch (KIFAdditions)
@@ -65,7 +67,9 @@
     
     _window = [window retain];
     _view = [hitTestView retain];
-    _gestureView = [hitTestView retain];
+    if ([self respondsToSelector:@selector(setGestureView:)]) {
+        [self setGestureView:hitTestView];
+    }
     _phase = UITouchPhaseBegan;
     _touchFlags._firstTouchForView = 1;
     _touchFlags._isTap = 1;
