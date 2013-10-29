@@ -376,23 +376,29 @@ typedef CGPoint KIFDisplacement;
         [view tapAtPoint:tappablePointInElement];
         
         KIFTestWaitCondition([view isDescendantOfFirstResponder], error, @"Failed to make the view with accessibility label \'%@\' the first responder. First responder is %@", label, [[[UIApplication sharedApplication] keyWindow] firstResponder]);
-        
-        // Wait for the keyboard
-        CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.5, false);
-        
-        for (NSUInteger characterIndex = 0; characterIndex < [text length]; characterIndex++) {
-            NSString *characterString = [text substringWithRange:NSMakeRange(characterIndex, 1)];
-            
-            if (![self _enterCharacter:characterString]) {
-                // Attempt to cheat if we couldn't find the character
-                if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]]) {
-                    NSLog(@"KIF: Unable to find keyboard key for %@. Inserting manually.", characterString);
-                    [(UITextField *)view setText:[[(UITextField *)view text] stringByAppendingString:characterString]];
-                } else {
-                    KIFTestCondition(NO, error, @"Failed to find key for character \'%@\'", characterString);
-                }
-            }
+ 
+        if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]]) {
+            [(UITextField *)view setText:text];
+        } else {
+            KIFTestCondition(NO, error, @"Expected a UITextView or UITextField");
         }
+
+//        // Wait for the keyboard
+//        CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.5, false);
+//        
+//        for (NSUInteger characterIndex = 0; characterIndex < [text length]; characterIndex++) {
+//            NSString *characterString = [text substringWithRange:NSMakeRange(characterIndex, 1)];
+//            
+//            if (![self _enterCharacter:characterString]) {
+//                // Attempt to cheat if we couldn't find the character
+//                if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]]) {
+//                    NSLog(@"KIF: Unable to find keyboard key for %@. Inserting manually.", characterString);
+//                    [(UITextField *)view setText:[[(UITextField *)view text] stringByAppendingString:characterString]];
+//                } else {
+//                    KIFTestCondition(NO, error, @"Failed to find key for character \'%@\'", characterString);
+//                }
+//            }
+//        }
         
         // This is probably a UITextField- or UITextView-ish view, so make sure it worked
         if ([view respondsToSelector:@selector(text)]) {
